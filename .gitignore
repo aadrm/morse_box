@@ -25,6 +25,7 @@ fp-info-cache
 *.xml
 *.csv
 
-# Don't add gbr
+# Don't add gbr and drill files
 *.gbr
 *.gbrjob
+*.drl

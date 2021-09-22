@@ -27,3 +27,4 @@ fp-info-cache
 
 # Don't add gbr
 *.gbr
+*.gbrjob

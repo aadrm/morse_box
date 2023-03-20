@@ -4,7 +4,7 @@ Arduino program that plays a morse code on start up
 
 // program variables
 // pins
-const int buzzer = 11; // an active buzzer
+const int buzzer = 9; // a passive buzzer
 const int duty = 60; // modulates the sound produced by the buzzer
 const int tempo = 165; // base unit of time
 const int dit = tempo; // morse dot or time between dots and dashes
@@ -32,9 +32,11 @@ void playMorseChar(String letter) {
         char c = letter[i];
         // start signal
         analogWrite(buzzer, duty);
+        digitalWrite(LED_BUILTIN, HIGH);
         // signal duration
         delay(charDuration(c));
         // stop the signal
+        digitalWrite(LED_BUILTIN, LOW);
         noTone(buzzer);
         // if not the last dit or dat of the character make a short stop otherwise a longer stop
         if (i < letter.length() - 1) {
@@ -57,5 +59,5 @@ int charDuration(char c) {
     else if (c == '-') {
         duration = dah;
     }
-    return duration
+    return duration;
 }
